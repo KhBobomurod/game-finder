@@ -36,7 +36,7 @@ const lastYear = `${getCurrentYear - 1}-${getCurrentMonth}-${getCurrentDay}`;
 const nextYear = `${getCurrentYear + 1}-${getCurrentMonth}-${getCurrentDay}`;
 
 // popular games
-const popular_games = `games?key=${api_key}&dates=${lastYear},${current_date}&ordering=-rating&page_size=10`;
+export const popular_games = `games?key=${api_key}&dates=${lastYear},${current_date}&ordering=-rating&page_size=10`;
 
 const popularGames = () => `${base_url}${popular_games}`;
 console.log(popularGames());
