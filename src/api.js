@@ -1,6 +1,6 @@
-// Api key - e2dcb4b316f64fc597aaad8efb975c8e
+// Api key - 0f0ac39a2e3e4280ac2a70bd73f9d7a8
 
-const api_key = "e2dcb4b316f64fc597aaad8efb975c8e";
+const api_key = "0f0ac39a2e3e4280ac2a70bd73f9d7a8";
 
 // base url
 const base_url = "https://api.rawg.io/api/";
@@ -29,14 +29,23 @@ const getCurrentYear = () => new Date().getFullYear();
 const getCurrentMonth = () => getMonth();
 const getCurrentDay = () => getDay();
 // current date
-const current_date = `${getCurrentYear}-${getCurrentMonth}-${getCurrentDay}`;
-// last date
-const lastYear = `${getCurrentYear - 1}-${getCurrentMonth}-${getCurrentDay}`;
-// Next year
-const nextYear = `${getCurrentYear + 1}-${getCurrentMonth}-${getCurrentDay}`;
+const currentDate = `${getCurrentYear()}-${getCurrentMonth()}-${getCurrentDay()}`;
+// last year
+const lastYear = `${
+  getCurrentYear() - 1
+}-${getCurrentMonth()}-${getCurrentDay()}`;
+// next year
+const nextYear = `${
+  getCurrentYear() + 1
+}-${getCurrentMonth()}-${getCurrentDay()}`;
 
 // popular games
-export const popular_games = `games?key=${api_key}&dates=${lastYear},${current_date}&ordering=-rating&page_size=10`;
+const popular_games = `games?key=${api_key}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
+// upcoming games
+const upcoming_games = `games?key=${api_key}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
+// new games
+const newGames = `games?key=${api_key}&dates=${lastYear},${currentDate}&ordering=-released&page_size=10`;
 
-const popularGames = () => `${base_url}${popular_games}`;
-console.log(popularGames());
+export const popularGamesURL = () => `${base_url}${popular_games}`;
+export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
+export const newGamesURL = () => `${base_url}${newGames}`;
