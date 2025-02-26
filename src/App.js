@@ -1,10 +1,11 @@
 import React from "react";
 import Home from "./pages/Home";
+import GlobalStyle from "./components/GlobalStyles";
 
 function App() {
   return (
     <div>
-      <h1>Game Finder App</h1>
+      <GlobalStyle />
       <Home />
     </div>
   );
