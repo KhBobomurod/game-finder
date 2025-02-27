@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadGames } from "../redux/actions/gamesAction";
 // components
 import Game from "../components/Game";
+import GameDetail from "../components/GameDetail";
 // styles
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -20,6 +21,7 @@ const Home = () => {
 
   return (
     <GameList>
+      <GameDetail />
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
@@ -70,5 +72,6 @@ const Games = styled(motion.div)`
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
 `;
+
 
 export default Home;
