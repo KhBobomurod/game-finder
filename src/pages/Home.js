@@ -1,32 +1,39 @@
 import React, { useEffect } from "react";
-// redux
 import { useDispatch, useSelector } from "react-redux";
 import { loadGames } from "../redux/actions/gamesAction";
-// components
 import Game from "../components/Game";
 import GameDetail from "../components/GameDetail";
-// styles
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Home = () => {
-  // useDispatch
   const dispatch = useDispatch();
-  // useEffect
+
   useEffect(() => {
     dispatch(loadGames());
   }, [dispatch]);
 
   const { popular, upcoming, newGames } = useSelector((state) => state.games);
+  const { isOpen } = useSelector((state) => state.detail);
+
+  if (popular.length === 0 || upcoming.length === 0 || newGames.length === 0) {
+    return <Loading>Loading...</Loading>;
+  }
 
   return (
-    <GameList>
-      <GameDetail />
+    <GameList
+      initial={{ scale: 0.8 }}
+      animate={{ scale: 1 }}
+      exit={{ scale: 0.8 }}
+      transition={{ duration: 1 }}
+    >
+      <AnimatePresence>{isOpen && <GameDetail />}</AnimatePresence>
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
           <Game
             key={game.id}
+            id={game.id}
             name={game.name}
             released={game.released}
             img={game.background_image}
@@ -38,6 +45,7 @@ const Home = () => {
         {popular.map((game) => (
           <Game
             key={game.id}
+            id={game.id}
             name={game.name}
             released={game.released}
             img={game.background_image}
@@ -49,6 +57,7 @@ const Home = () => {
         {newGames.map((game) => (
           <Game
             key={game.id}
+            id={game.id}
             name={game.name}
             released={game.released}
             img={game.background_image}
@@ -73,5 +82,10 @@ const Games = styled(motion.div)`
   grid-row-gap: 5rem;
 `;
 
+const Loading = styled(motion.div)`
+  padding-top: 20rem;
+  text-align: center;
+  font-size: 2rem;
+`;
 
 export default Home;

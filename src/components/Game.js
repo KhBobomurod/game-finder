@@ -1,14 +1,10 @@
 import React from "react";
-// styles
 import styled from "styled-components";
 import { motion } from "framer-motion";
-// import redux
 import { useDispatch } from "react-redux";
 import { loadDetail } from "../redux/actions/detailAction";
-// import { Link } from "react-router-dom";
 
 const Game = ({ name, released, img, id }) => {
-  // loadDetails
   const dispatch = useDispatch();
   const loadDetailHandler = () => {
     dispatch(loadDetail(id));
@@ -16,7 +12,7 @@ const Game = ({ name, released, img, id }) => {
 
   return (
     <StyledGame onClick={loadDetailHandler}>
-      <h3>Game name: {name}</h3>
+      <h3>{name}</h3>
       <p>Released Date: {released}</p>
       <img src={img} alt={name} />
     </StyledGame>

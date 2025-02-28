@@ -10,6 +10,11 @@ export const loadDetail = (id) => async (dispatch) => {
     payload: {
       game: detailData.data,
       screen: screenData.data,
+      isOpen: true,
     },
   });
 };
+
+export const closeDetail = () => ({
+  type: "CLOSE_DETAIL",
+});
