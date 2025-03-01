@@ -61,6 +61,33 @@ const CardShadow = styled(motion.div)`
   align-items: center;
   justify-content: center;
   z-index: 10;
+  @media (max-width: 1300px) {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  @media (max-width: 1000px) {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
 `;
 
 const CardDetail = styled(motion.div)`
@@ -75,7 +102,7 @@ const CardDetail = styled(motion.div)`
     width: 0.4rem;
   }
   &::-webkit-scrollbar-thumb {
-    background:rgb(251, 158, 65);
+    background: rgb(251, 158, 65);
     border-radius: 1rem;
   }
 
@@ -90,6 +117,78 @@ const CardDetail = styled(motion.div)`
   }
   img {
     width: 100%;
+  }
+  @media (max-width: 1300px) {
+    width: 50%;
+    max-height: 80vh;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(251, 158, 65);
+      border-radius: 1rem;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  @media (max-width: 1000px) {
+    width: 50%;
+    max-height: 80vh;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(251, 158, 65);
+      border-radius: 1rem;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  @media (max-width: 500px) {
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(251, 158, 65);
+      border-radius: 1rem;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    img {
+      width: 100%;
+    }
   }
 `;
 

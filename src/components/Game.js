@@ -33,6 +33,23 @@ const StyledGame = styled(motion.div)`
     height: 40vh;
     object-fit: cover;
   }
+  @media (max-width: 1300px) {
+    img {
+      width: 100%;
+      border-bottom-right-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      object-fit: cover;
+    }
+  }
+  @media (max-width: 1000px) {
+    img {
+      width: 100%;
+      border-bottom-right-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      
+      object-fit: cover;
+    }
+  } 
 `;
 
 export default Game;

@@ -73,13 +73,31 @@ const GameList = styled(motion.div)`
   h2 {
     padding: 5rem 0rem;
   }
-`;
+  @media (max-width: 1300px) {
+    padding: 0rem 3rem;
+  }
+  @media (max-width: 1000px) {
+    padding: 0rem 2rem;
+  }
+  @media (max-width: 500px) {
+    padding: 0rem 1rem;
+  }
+  `;
 
 const Games = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
+  @media (max-width: 1300px) {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 `;
 
 const Loading = styled(motion.div)`
