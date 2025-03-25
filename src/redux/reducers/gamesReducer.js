@@ -3,6 +3,7 @@ const initState = {
   upcoming: [],
   newGames: [],
   searched: [],
+  favorites: [],
 };
 
 const gamesReducer = (state = initState, action) => {
@@ -22,7 +23,17 @@ const gamesReducer = (state = initState, action) => {
     case "CLEAR_SEARCH":
       return {
         ...state,
-        searched: [], // searched massivini bo'shatadi
+        searched: [],
+      };
+    case "ADD_TO_FAVORITES":
+      return {
+        ...state,
+        favorites: [...state.favorites, action.payload],
+      };
+    case "REMOVE_FROM_FAVORITES":
+      return {
+        ...state,
+        favorites: state.favorites.filter((game) => game.id !== action.payload),
       };
     default:
       return { ...state };
