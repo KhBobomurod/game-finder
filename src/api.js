@@ -57,3 +57,6 @@ export const GameDetailsURL = (game_id) =>
 // screenshots
 export const gameScreenURL = (game_id) =>
   `${base_url}games/${game_id}/screenshots?key=${api_key}`;
+
+export const searchGamesURL = (query) =>
+  `https://api.rawg.io/api/games?search=${query}&key=${api_key}`; 

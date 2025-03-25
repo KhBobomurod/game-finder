@@ -119,7 +119,7 @@ const CardDetail = styled(motion.div)`
     width: 100%;
   }
   @media (max-width: 1300px) {
-    width: 50%;
+    width: 90%;
     max-height: 80vh;
     overflow-y: scroll;
     &::-webkit-scrollbar {
@@ -143,7 +143,7 @@ const CardDetail = styled(motion.div)`
     }
   }
   @media (max-width: 1000px) {
-    width: 50%;
+    width: 90%;
     max-height: 80vh;
     overflow-y: scroll;
     &::-webkit-scrollbar {

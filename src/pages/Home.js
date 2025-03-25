@@ -13,7 +13,9 @@ const Home = () => {
     dispatch(loadGames());
   }, [dispatch]);
 
-  const { popular, upcoming, newGames } = useSelector((state) => state.games);
+  const { popular, upcoming, newGames, searched } = useSelector(
+    (state) => state.games
+  );
   const { isOpen } = useSelector((state) => state.detail);
 
   if (popular.length === 0 || upcoming.length === 0 || newGames.length === 0) {
@@ -28,6 +30,25 @@ const Home = () => {
       transition={{ duration: 1 }}
     >
       <AnimatePresence>{isOpen && <GameDetail />}</AnimatePresence>
+
+      {/* Qidiruv natijalari - faqat searchTerm bo'lsa ko'rinadi */}
+      {searched.length > 0 && (
+        <>
+          <h2>Qidiruv Natijalari</h2>
+          <Games>
+            {searched.map((game) => (
+              <Game
+                key={game.id}
+                id={game.id}
+                name={game.name}
+                released={game.released}
+                img={game.background_image}
+              />
+            ))}
+          </Games>
+        </>
+      )}
+
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
@@ -40,6 +61,7 @@ const Home = () => {
           />
         ))}
       </Games>
+
       <h2>Popular Games</h2>
       <Games>
         {popular.map((game) => (
@@ -52,6 +74,7 @@ const Home = () => {
           />
         ))}
       </Games>
+
       <h2>New Games</h2>
       <Games>
         {newGames.map((game) => (
@@ -69,20 +92,20 @@ const Home = () => {
 };
 
 const GameList = styled(motion.div)`
-  padding: 0rem 5rem;
+  padding: 6rem 5rem 0rem; /* Header bilan overlap bo'lmasligi uchun tepadan padding */
   h2 {
     padding: 5rem 0rem;
   }
   @media (max-width: 1300px) {
-    padding: 0rem 3rem;
+    padding: 6rem 3rem 0rem;
   }
   @media (max-width: 1000px) {
-    padding: 0rem 2rem;
+    padding: 6rem 2rem 0rem;
   }
   @media (max-width: 500px) {
-    padding: 0rem 1rem;
+    padding: 6rem 1rem 0rem;
   }
-  `;
+`;
 
 const Games = styled(motion.div)`
   display: grid;
